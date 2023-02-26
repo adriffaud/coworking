@@ -1,52 +1,26 @@
-<script>
-	/** @type {import('./$types').PageData} */
-	export let data;
+<script lang="ts">
+	import { currentUser, pb } from '$lib/pocketbase';
+
+	let loggedIn: boolean;
+	let username: string;
+	let password: string;
+
+	currentUser.subscribe((user) => {
+		console.log(user);
+		loggedIn = !!user;
+	});
+
+	async function login() {
+		await pb.collection('users').authWithPassword(username, password);
+	}
 </script>
 
 <section>
-	<div>
-		<h1>Coworking</h1>
-		<button>Ajouter une session</button>
-	</div>
+	<h1>Coworking</h1>
 
-	<table>
-		<tr>
-			<th>Quand</th>
-			<th>Chez qui</th>
-			<th>Avec</th>
-		</tr>
-		{#each data.sessions as session (session.id)}
-			<tr>
-				<td>{new Date(session.date).toLocaleDateString()}</td>
-				<td>
-					<strong>{session.expand?.house?.expand?.user?.name}</strong><br />
-					<small>{@html session.expand?.house?.address}</small>
-				</td>
-				<td>
-					<ul>
-						{#each session.expand?.attendees as attendee (attendee.id)}
-							<li>
-								{attendee.name}
-							</li>
-						{/each}
-					</ul>
-				</td>
-			</tr>
-		{/each}
-	</table>
+	<form on:submit|preventDefault>
+		<input placeholder="Username" type="text" bind:value={username} /><br />
+		<input placeholder="Password" type="password" bind:value={password} /><br />
+		<button on:click={login}>Login</button>
+	</form>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-		gap: 2em;
-	}
-	div {
-		display: flex;
-		flex-grow: 1;
-		justify-content: space-between;
-		align-items: center;
-	}
-</style>
