@@ -1,5 +1,5 @@
-defmodule PhoenixCoworkingWeb.PageControllerTest do
-  use PhoenixCoworkingWeb.ConnCase
+defmodule CoworkingWeb.PageControllerTest do
+  use CoworkingWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

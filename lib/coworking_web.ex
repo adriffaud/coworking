@@ -1,12 +1,12 @@
-defmodule PhoenixCoworkingWeb do
+defmodule CoworkingWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use PhoenixCoworkingWeb, :controller
-      use PhoenixCoworkingWeb, :html
+      use CoworkingWeb, :controller
+      use CoworkingWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule PhoenixCoworkingWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: PhoenixCoworkingWeb.Layouts]
+        layouts: [html: CoworkingWeb.Layouts]
 
       import Plug.Conn
-      import PhoenixCoworkingWeb.Gettext
+      import CoworkingWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule PhoenixCoworkingWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {PhoenixCoworkingWeb.Layouts, :app}
+        layout: {CoworkingWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule PhoenixCoworkingWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import PhoenixCoworkingWeb.CoreComponents
-      import PhoenixCoworkingWeb.Gettext
+      import CoworkingWeb.CoreComponents
+      import CoworkingWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule PhoenixCoworkingWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: PhoenixCoworkingWeb.Endpoint,
-        router: PhoenixCoworkingWeb.Router,
-        statics: PhoenixCoworkingWeb.static_paths()
+        endpoint: CoworkingWeb.Endpoint,
+        router: CoworkingWeb.Router,
+        statics: CoworkingWeb.static_paths()
     end
   end
 

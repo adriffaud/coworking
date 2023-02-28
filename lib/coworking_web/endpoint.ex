@@ -1,5 +1,5 @@
-defmodule PhoenixCoworkingWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :phoenix_coworking
+defmodule CoworkingWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :coworking
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -19,9 +19,9 @@ defmodule PhoenixCoworkingWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :phoenix_coworking,
+    from: :coworking,
     gzip: false,
-    only: PhoenixCoworkingWeb.static_paths()
+    only: CoworkingWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -29,7 +29,7 @@ defmodule PhoenixCoworkingWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :phoenix_coworking
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :coworking
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -47,5 +47,5 @@ defmodule PhoenixCoworkingWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug PhoenixCoworkingWeb.Router
+  plug CoworkingWeb.Router
 end

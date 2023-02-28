@@ -5,20 +5,20 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :phoenix_coworking, PhoenixCoworking.Repo,
+config :coworking, Coworking.Repo,
   database: Path.expand("../phoenix_coworking_test.db", Path.dirname(__ENV__.file)),
   pool_size: 5,
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :phoenix_coworking, PhoenixCoworkingWeb.Endpoint,
+config :coworking, CoworkingWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "bVELtPUndlcwyEy4XK80zn7viDT/oBkw1ALqbzJW0ZSezPGnBT2g6JEi6ijGC5aI",
   server: false
 
 # In test we don't send emails.
-config :phoenix_coworking, PhoenixCoworking.Mailer, adapter: Swoosh.Adapters.Test
+config :coworking, Coworking.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false

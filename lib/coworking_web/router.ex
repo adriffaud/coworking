@@ -1,11 +1,11 @@
-defmodule PhoenixCoworkingWeb.Router do
-  use PhoenixCoworkingWeb, :router
+defmodule CoworkingWeb.Router do
+  use CoworkingWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {PhoenixCoworkingWeb.Layouts, :root}
+    plug :put_root_layout, {CoworkingWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -14,19 +14,19 @@ defmodule PhoenixCoworkingWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PhoenixCoworkingWeb do
+  scope "/", CoworkingWeb do
     pipe_through :browser
 
     get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PhoenixCoworkingWeb do
+  # scope "/api", CoworkingWeb do
   #   pipe_through :api
   # end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
-  if Application.compile_env(:phoenix_coworking, :dev_routes) do
+  if Application.compile_env(:coworking, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put
     # it behind authentication and allow only admins to access it.
     # If your application does not have an admins-only section yet,
@@ -37,7 +37,7 @@ defmodule PhoenixCoworkingWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: PhoenixCoworkingWeb.Telemetry
+      live_dashboard "/dashboard", metrics: CoworkingWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end

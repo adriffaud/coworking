@@ -7,17 +7,17 @@
 # General application configuration
 import Config
 
-config :phoenix_coworking,
-  ecto_repos: [PhoenixCoworking.Repo]
+config :coworking,
+  ecto_repos: [Coworking.Repo]
 
 # Configures the endpoint
-config :phoenix_coworking, PhoenixCoworkingWeb.Endpoint,
+config :coworking, CoworkingWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [html: PhoenixCoworkingWeb.ErrorHTML, json: PhoenixCoworkingWeb.ErrorJSON],
+    formats: [html: CoworkingWeb.ErrorHTML, json: CoworkingWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: PhoenixCoworking.PubSub,
+  pubsub_server: Coworking.PubSub,
   live_view: [signing_salt: "sTpRrLCl"]
 
 # Configures the mailer
@@ -27,7 +27,7 @@ config :phoenix_coworking, PhoenixCoworkingWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :phoenix_coworking, PhoenixCoworking.Mailer, adapter: Swoosh.Adapters.Local
+config :coworking, Coworking.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

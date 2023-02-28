@@ -1,4 +1,4 @@
-defmodule PhoenixCoworkingWeb.CoreComponents do
+defmodule CoworkingWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -12,7 +12,7 @@ defmodule PhoenixCoworkingWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import PhoenixCoworkingWeb.Gettext
+  import CoworkingWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -646,9 +646,9 @@ defmodule PhoenixCoworkingWeb.CoreComponents do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(PhoenixCoworkingWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(CoworkingWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(PhoenixCoworkingWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(CoworkingWeb.Gettext, "errors", msg, opts)
     end
   end
 

@@ -1,4 +1,4 @@
-defmodule PhoenixCoworking.Application do
+defmodule Coworking.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,22 +9,22 @@ defmodule PhoenixCoworking.Application do
   def start(_type, _args) do
     children = [
       # Start the Telemetry supervisor
-      PhoenixCoworkingWeb.Telemetry,
+      CoworkingWeb.Telemetry,
       # Start the Ecto repository
-      PhoenixCoworking.Repo,
+      Coworking.Repo,
       # Start the PubSub system
-      {Phoenix.PubSub, name: PhoenixCoworking.PubSub},
+      {Phoenix.PubSub, name: Coworking.PubSub},
       # Start Finch
-      {Finch, name: PhoenixCoworking.Finch},
+      {Finch, name: Coworking.Finch},
       # Start the Endpoint (http/https)
-      PhoenixCoworkingWeb.Endpoint
-      # Start a worker by calling: PhoenixCoworking.Worker.start_link(arg)
-      # {PhoenixCoworking.Worker, arg}
+      CoworkingWeb.Endpoint
+      # Start a worker by calling: Coworking.Worker.start_link(arg)
+      # {Coworking.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: PhoenixCoworking.Supervisor]
+    opts = [strategy: :one_for_one, name: Coworking.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -32,7 +32,7 @@ defmodule PhoenixCoworking.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    PhoenixCoworkingWeb.Endpoint.config_change(changed, removed)
+    CoworkingWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

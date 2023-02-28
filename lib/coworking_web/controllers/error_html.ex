@@ -1,5 +1,5 @@
-defmodule PhoenixCoworkingWeb.ErrorHTML do
-  use PhoenixCoworkingWeb, :html
+defmodule CoworkingWeb.ErrorHTML do
+  use CoworkingWeb, :html
 
   # If you want to customize your error pages,
   # uncomment the embed_templates/1 call below

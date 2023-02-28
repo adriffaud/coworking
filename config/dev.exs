@@ -1,7 +1,7 @@
 import Config
 
 # Configure your database
-config :phoenix_coworking, PhoenixCoworking.Repo,
+config :coworking, Coworking.Repo,
   database: Path.expand("../phoenix_coworking_dev.db", Path.dirname(__ENV__.file)),
   pool_size: 5,
   stacktrace: true,
@@ -13,7 +13,7 @@ config :phoenix_coworking, PhoenixCoworking.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :phoenix_coworking, PhoenixCoworkingWeb.Endpoint,
+config :coworking, CoworkingWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
@@ -27,7 +27,7 @@ config :phoenix_coworking, PhoenixCoworkingWeb.Endpoint,
   ]
 
 # Watch static and templates for browser reloading.
-config :phoenix_coworking, PhoenixCoworkingWeb.Endpoint,
+config :coworking, CoworkingWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
@@ -37,7 +37,7 @@ config :phoenix_coworking, PhoenixCoworkingWeb.Endpoint,
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :phoenix_coworking, dev_routes: true
+config :coworking, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

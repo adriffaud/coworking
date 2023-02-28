@@ -1,4 +1,4 @@
-defmodule PhoenixCoworkingWeb.Telemetry do
+defmodule CoworkingWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -86,7 +86,7 @@ defmodule PhoenixCoworkingWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {PhoenixCoworkingWeb, :count_users, []}
+      # {CoworkingWeb, :count_users, []}
     ]
   end
 end

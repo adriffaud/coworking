@@ -1,4 +1,4 @@
-# PhoenixCoworking
+# Coworking
 
 To start your Phoenix server:
 
