@@ -1,14 +1,8 @@
 <script lang="ts">
-	import { currentUser, pb } from '$lib/pocketbase';
+	import { pb } from '$lib/pocketbase';
 
-	let loggedIn: boolean;
 	let username: string;
 	let password: string;
-
-	currentUser.subscribe((user) => {
-		console.log(user);
-		loggedIn = !!user;
-	});
 
 	async function login() {
 		await pb.collection('users').authWithPassword(username, password);
