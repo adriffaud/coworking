@@ -1,27 +1,18 @@
-# Co-working
+# PhoenixCoworking
 
-An app to organize co-working sessions at each-other houses.
+To start your Phoenix server:
 
-Powered by [`sveltekit`](https://kit.svelte.dev) & [`pocketbase`](https://pocketbase.io).
+  * Run `mix setup` to install and setup dependencies
+  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
-## Developing
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-```bash
-npm i
-npm run dev
+Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Learn more
 
-## Building
-
-To create a production version:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+  * Official website: https://www.phoenixframework.org/
+  * Guides: https://hexdocs.pm/phoenix/overview.html
+  * Docs: https://hexdocs.pm/phoenix
+  * Forum: https://elixirforum.com/c/phoenix-forum
+  * Source: https://github.com/phoenixframework/phoenix
